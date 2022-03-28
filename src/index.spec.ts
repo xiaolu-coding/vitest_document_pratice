@@ -13,6 +13,12 @@ describe('test', () => {
   test.only("only test", () => {
     assert.equal(Math.sqrt(4), 2)
   })
+  // 并发测试
+  test("serial test", async () => {})
+  test.concurrent("concurrent test 1", async () => {})
+  test.concurrent("concurrent test 2", async () => {}) 
+
+  test.todo('unimplemented test')
 }) 
 
 
