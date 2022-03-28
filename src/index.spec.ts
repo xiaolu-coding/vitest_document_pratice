@@ -54,8 +54,6 @@ describe("test describe", () => {
   })
 })
 
-// 嵌套describe
-
 const numberToCurrency = (value) => {
   if (typeof value !== "number") {
     throw new Error("value must be a number")
@@ -66,7 +64,7 @@ const numberToCurrency = (value) => {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
-
+// 嵌套describe
 describe("numberToCurrency", () => {
   describe("given an invalid number", () => {
     test("composed of non-numbers to throw error", () => {
@@ -74,11 +72,28 @@ describe("numberToCurrency", () => {
     })
   })
 
-  describe('given a valid number', () => {
-    test('returns the correct currency format', () => {
-      expect(numberToCurrency(10000)).toBe('10,000.00')
+  describe("given a valid number", () => {
+    test("returns the correct currency format", () => {
+      expect(numberToCurrency(10000)).toBe("10,000.00")
     })
   })
 })
+// 跳过describe
+describe.skip("skippede suite", () => {
+  test("sqrt", () => {
+    assert.equal(Math.sqrt(4), 3)
+  })
+})
 
+describe.only("suite", () => {
+  test("sqrt", () => {
+    assert.equal(Math.sqrt(4), 2)
+  })
+})
 
+describe("other suite", () => {
+  test('sqrt', () => {
+    //这里会被跳过
+    assert.equal(Math.sqrt(4), 3)
+  })
+})
