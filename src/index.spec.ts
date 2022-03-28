@@ -85,15 +85,41 @@ describe.skip("skippede suite", () => {
   })
 })
 
-describe.only("suite", () => {
-  test("sqrt", () => {
-    assert.equal(Math.sqrt(4), 2)
-  })
-})
+// describe.only("suite", () => {
+//   test("sqrt", () => {
+//     assert.equal(Math.sqrt(4), 2)
+//   })
+// })
 
-describe("other suite", () => {
-  test('sqrt', () => {
-    //这里会被跳过
-    assert.equal(Math.sqrt(4), 3)
+// describe("other suite", () => {
+//   test('sqrt', () => {
+//     //这里会被跳过
+//     assert.equal(Math.sqrt(4), 3)
+//   })
+// })
+
+// 该测试套件中的所有测试都将并行运行
+describe.concurrent("suite", () => {
+  test("concurrent test 1", async() => { /* ... */ });
+  test("concurrent test 2", async() => { /* ... */ });
+  test.concurrent("concurrent test 3", async() => { /* ... */ });
+})
+// 测试套件的报告中将显示一个记录
+describe.todo("unimplemented suite")
+
+// 多个测试依赖相同的数据
+describe.each([
+  { a: 1, b: 1, expected: 2 },
+  { a: 1, b: 2, expected: 3 },
+  { a: 2, b: 1, expected: 3 },
+])('describe object add(%i, %i)', ({ a, b, expected }) => {
+  test(`returns ${expected}`, () => {
+    expect(a + b).toBe(expected)
+  })
+  test(`returned value not be greater than ${expected}`, () => {
+    expect(a + b).not.toBeGreaterThan(expected)
+  })
+  test(`returned value not be less than ${expected}`, () => {
+    expect(a + b).not.toBeLessThan(expected)
   })
 })
