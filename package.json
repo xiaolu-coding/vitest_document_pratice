@@ -1,0 +1,12 @@
+{
+  "name": "vitest_document_pratice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest"
+  },  
+  "devDependencies": {
+    "vitest": "^0.7.12"
+  }
+}
