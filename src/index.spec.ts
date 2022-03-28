@@ -16,9 +16,22 @@ describe('test', () => {
   // 并发测试
   test("serial test", async () => {})
   test.concurrent("concurrent test 1", async () => {})
-  test.concurrent("concurrent test 2", async () => {}) 
+  test.concurrent("concurrent test 2", async () => {})
 
-  test.todo('unimplemented test')
+  test.todo("unimplemented test")
+  // 表示断言将显式失败。
+  const myAsyncFunction = () => new Promise((resolve) => resolve(1))
+  test.fails('fail test', () => {
+    expect(myAsyncFunction()).rejects.toBe(1)
+  })
+
+  test.each([
+    [1, 1, 2],
+    [1, 2, 3],
+    [2, 1, 3],
+  ])('add(%i, %i) => %i', (a, b, expected) => {
+    expect(a + b).toBe(expected)
+  })
 }) 
 
 
