@@ -87,4 +87,17 @@ describe("expect", () => {
     expect({}).toBeTypeOf('object')
     expect(() => {}).toBeTypeOf('function')
   })
+
+  test('test expect toBeInstanceOf', () => {
+    class Stocks {
+      val: number
+      constructor(val: number) {
+        this.val = val
+      }
+    }
+
+    const stock = new Stocks(3)
+    // 用于检查值是否为接收的类的实例
+    expect(stock).toBeInstanceOf(Stocks)
+  })
 })
