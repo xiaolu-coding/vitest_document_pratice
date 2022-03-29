@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest"
+import { describe, expect, test, vi } from "vitest"
 
 describe("expect", () => {
   test("test expect", () => {
@@ -243,5 +243,22 @@ describe("expect", () => {
     expect(() => getFruitStock("pineapples")).toThrowError(
       "No pineapples in stock"
     )
+  })
+
+  test('test expect toHaveBeenCalled', () => {
+    const market = {
+      buy(subject: string, amount: number) {
+        // ...
+      },
+      add(a: number, b: number) {
+        a + b
+      }
+    }
+    // 监听函数
+    const addSpy = vi.spyOn(market, 'add')
+
+    market.add(1, 2)
+    
+    expect(addSpy).toHaveBeenCalled()
   })
 })
