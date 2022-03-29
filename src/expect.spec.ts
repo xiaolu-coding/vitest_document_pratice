@@ -18,7 +18,7 @@ describe('expect', () => {
       type: "apples",
       count: 13,
     }
-    
+
     expect(stock.type).toBe("apples")
     expect(stock.count).toBe(13)
     // 相同的引用
@@ -26,5 +26,13 @@ describe('expect', () => {
     expect(stock).toBe(refStock)
     // 尽量不要将 toBe 与浮点数一起使用
     expect(0.1 + 0.2).not.toBe(0.3)
+  })
+
+  test('test expect toBeCloseTo', () => {
+    // 第二个参数是限制小数点后的检查位数 0.2 + 0.1 = 0.30000000000000004
+    // 0.2 + 0.1 = 0.30000
+    expect(0.1 + 0.2).toBeCloseTo(0.3, 5)
+    // 后50位
+    expect(0.1 + 0.2).not.toBeCloseTo(0.3, 50)
   })
 })
