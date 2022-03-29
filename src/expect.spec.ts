@@ -115,4 +115,10 @@ describe("expect", () => {
     expect(3).not.toBeGreaterThanOrEqual(4)
   })
 
+  test('test expect toBeLessThan', () => {
+    // 用于检查值是否小于接收值，如果相等和大于都无法通过测试
+    expect(2).toBeLessThan(3)
+    expect(2).not.toBeLessThan(2)
+    expect(3).not.toBeLessThan(2)
+  })
 })
