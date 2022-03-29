@@ -214,4 +214,21 @@ describe("expect", () => {
     expect("top fruits include apple, orange and grape").toMatch(/apple/)
     expect("applefruits").toMatch("fruit") // toMatch 也可以是一个字符串
   })
+
+  test("test expect toMatchObject", () => {
+    const john1 = {
+      customer: {
+        name: "John",
+      },
+    }
+    const john2 = {
+      customer: {
+        name: "John",
+      },
+    }
+    // 用于断言对象是否匹配指定的对象属性的子集。
+    expect(john1).toMatchObject(john2)
+    // 断言对象数组是否匹配
+    expect([{ foo: "bar" }]).toMatchObject([{ foo: "bar" }])
+  })
 })
