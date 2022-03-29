@@ -35,4 +35,12 @@ describe('expect', () => {
     // 后50位
     expect(0.1 + 0.2).not.toBeCloseTo(0.3, 50)
   })
+
+  test('test expect toBeDefined', () => {
+    const getApples1 = () => 3
+    const getApples2 = () => { let a = 1 }
+    // 检查是否不等于undefined，也可以检查返回值
+    expect(getApples1()).toBeDefined()
+    expect(getApples2()).not.toBeDefined()
+  })
 })
