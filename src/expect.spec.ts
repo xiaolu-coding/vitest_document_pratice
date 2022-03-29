@@ -263,4 +263,9 @@ describe("expect", () => {
     market.add(1, 2)
     expect(addSpy).toHaveBeenCalledTimes(2)
   })
+
+  test('test expect toHaveBeenCalledWith', () => {
+    market.add(1, 2)
+    expect(addSpy).toHaveBeenCalledWith(1, 2)
+  })
 })
