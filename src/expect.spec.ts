@@ -121,4 +121,10 @@ describe("expect", () => {
     expect(2).not.toBeLessThan(2)
     expect(3).not.toBeLessThan(2)
   })
+
+  test('test expect toBeLessThanOrEqual', () => {
+    expect(2).toBeLessThanOrEqual(3)
+    expect(2).toBeLessThanOrEqual(2)
+    expect(3).not.toBeLessThanOrEqual(2)
+  })
 })
