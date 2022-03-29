@@ -51,4 +51,10 @@ describe("expect", () => {
     expect(getApples1()).not.toBeUndefined()
     expect(getApples2()).toBeUndefined()
   })
+
+  test('test expect toBeTruthy', () => {
+    // 检查是否等于true， 会将检查值转换为布尔值
+    expect(true).toBeTruthy()
+    expect(false).not.toBeTruthy()
+  })
 })
