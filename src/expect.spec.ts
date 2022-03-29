@@ -278,8 +278,8 @@ describe("expect", () => {
     const PRICE = 10
     return amount * PRICE
   }
-  //! 
-  test('test expect toHaveReturned', () => {
+  //!
+  test("test expect toHaveReturned", () => {
     const getPriceSpy = vi.fn(getApplesPrice)
 
     const price = getPriceSpy(5)
@@ -287,13 +287,17 @@ describe("expect", () => {
     expect(price).toBe(50)
     expect(getPriceSpy).toHaveReturned()
   })
+  const sell = vi.fn((product: string) => ({ product }))
 
+  
   test("test expect toHaveReturnedTimes", () => {
-    const sell = vi.fn((product: string) => ({ product }))
-
-    sell('apples')
-    sell('bananas')
-
+    sell("apples")
+  sell("bananas")
     expect(sell).toHaveReturnedTimes(2)
+  })
+
+  test('test expect toHAveReturnedWith', () => {
+    sell("apples")
+    expect(sell).toHaveReturnedWith({ product: "apples" })
   })
 })
