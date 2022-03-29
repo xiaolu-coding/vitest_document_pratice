@@ -282,7 +282,7 @@ describe("expect", () => {
   test('test expect toHaveReturned', () => {
     const getPriceSpy = vi.fn(getApplesPrice)
 
-    const price = getApplesPrice(5)
+    const price = getPriceSpy(5)
 
     expect(price).toBe(50)
     expect(getPriceSpy).toHaveReturned()
