@@ -154,4 +154,10 @@ describe("expect", () => {
     expect(new Stock("apples")).toEqual({ type: "apples" })
     expect(new Stock("apples")).not.toStrictEqual({ type: "apples" })
   })
+
+  test('test expect toContain', () => {
+    // 用于检查数组和字符串中是否包含接收值
+    expect('xiaolu').toContain('xiao')
+    expect([1, 2, 3]).toContain(2)
+  })
 })
