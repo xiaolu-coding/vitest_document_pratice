@@ -57,4 +57,10 @@ describe("expect", () => {
     expect(true).toBeTruthy()
     expect(false).not.toBeTruthy()
   })
+
+  test('test expect toBeFalsy', () => {
+    // 检查是否等于false， 会将检查值转换为布尔值
+    expect(false).toBeFalsy()
+    expect(true).not.toBeFalsy()
+  })
 })
