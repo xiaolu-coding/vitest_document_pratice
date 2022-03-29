@@ -77,4 +77,14 @@ describe("expect", () => {
     expect(NaN).toBeNaN()
     expect(1).not.toBeNaN()
   })
+
+  test('test expect toBeTypeOf', () => {
+    // 检查是否等于指定的类型
+    expect('123').toBeTypeOf('string')
+    expect(123).toBeTypeOf('number')
+    expect(true).toBeTypeOf('boolean')
+    expect(undefined).toBeTypeOf('undefined')
+    expect({}).toBeTypeOf('object')
+    expect(() => {}).toBeTypeOf('function')
+  })
 })
