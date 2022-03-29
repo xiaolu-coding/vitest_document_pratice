@@ -127,4 +127,19 @@ describe("expect", () => {
     expect(2).toBeLessThanOrEqual(2)
     expect(3).not.toBeLessThanOrEqual(2)
   })
+
+  test('test expect toEqual', () => {
+    const stockBill = {
+      type: 'apples',
+      count: 13
+    }
+
+    const stockMary = {
+      type: 'apples',
+      count: 13
+    }
+    // 检查值是否等于接收值，或者是同样的结构，如果是对象类型（将会使用递归的方法进行比较）
+    expect(stockBill).toEqual(stockMary)
+    expect(1).toEqual(1)
+  })
 })
