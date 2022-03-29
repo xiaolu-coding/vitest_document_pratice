@@ -244,21 +244,23 @@ describe("expect", () => {
       "No pineapples in stock"
     )
   })
-
-  test('test expect toHaveBeenCalled', () => {
-    const market = {
-      buy(subject: string, amount: number) {
-        // ...
-      },
-      add(a: number, b: number) {
-        a + b
-      }
-    }
-    // 监听函数
-    const addSpy = vi.spyOn(market, 'add')
-
+  const market = {
+    buy(subject: string, amount: number) {
+      // ...
+    },
+    add(a: number, b: number) {
+      a + b
+    },
+  }
+  // 监听函数
+  const addSpy = vi.spyOn(market, "add")
+  test("test expect toHaveBeenCalled", () => {
     market.add(1, 2)
-    
+
     expect(addSpy).toHaveBeenCalled()
+  })
+  test("test expect toHaveBeenCalledTimes", () => {
+    market.add(1, 2)
+    expect(addSpy).toHaveBeenCalledTimes(2)
   })
 })
