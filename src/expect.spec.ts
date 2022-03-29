@@ -63,4 +63,12 @@ describe("expect", () => {
     expect(false).toBeFalsy()
     expect(true).not.toBeFalsy()
   })
+
+  test('test expect toBeNull', () => {
+    function apples() {
+      return null
+    }
+    // 检查是否等于null, 是.toBe(null)的别名
+    expect(apples()).toBeNull()
+  })
 })
