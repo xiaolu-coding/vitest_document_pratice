@@ -100,4 +100,12 @@ describe("expect", () => {
     // 用于检查值是否为接收的类的实例
     expect(stock).toBeInstanceOf(Stocks)
   })
+
+  test('test expect toBeGreaterThan', () => {
+    // 用于检查值是否大于接收值，相等和小于都无法通过测试
+    expect(3).toBeGreaterThan(2)
+    expect(2).not.toBeGreaterThan(3)
+    expect(2).not.toBeGreaterThan(2)
+  })
+
 })
