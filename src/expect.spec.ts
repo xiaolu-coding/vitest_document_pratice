@@ -296,8 +296,13 @@ describe("expect", () => {
     expect(sell).toHaveReturnedTimes(2)
   })
 
-  test('test expect toHAveReturnedWith', () => {
+  test('test expect toHaveReturnedWith', () => {
     sell("apples")
     expect(sell).toHaveReturnedWith({ product: "apples" })
+  })
+
+  test('test expect toHaveLastReturnedWith', () => {
+    sell('bananas')
+    expect(sell).toHaveLastReturnedWith({ product: 'bananas' })
   })
 })
