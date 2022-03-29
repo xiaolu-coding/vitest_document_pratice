@@ -264,8 +264,13 @@ describe("expect", () => {
     expect(addSpy).toHaveBeenCalledTimes(2)
   })
 
-  test('test expect toHaveBeenCalledWith', () => {
+  test("test expect toHaveBeenCalledWith", () => {
     market.add(1, 2)
     expect(addSpy).toHaveBeenCalledWith(1, 2)
+  })
+  // 用于检测第几次调用时的参数
+  test("test expect toHaveBeenNthCalledWith", () => {
+    market.add(3, 4)
+    expect(addSpy).toHaveBeenNthCalledWith(4, 3, 4)
   })
 })
