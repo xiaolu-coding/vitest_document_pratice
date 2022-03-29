@@ -289,20 +289,23 @@ describe("expect", () => {
   })
   const sell = vi.fn((product: string) => ({ product }))
 
-  
   test("test expect toHaveReturnedTimes", () => {
     sell("apples")
-  sell("bananas")
+    sell("bananas")
     expect(sell).toHaveReturnedTimes(2)
   })
 
-  test('test expect toHaveReturnedWith', () => {
+  test("test expect toHaveReturnedWith", () => {
     sell("apples")
     expect(sell).toHaveReturnedWith({ product: "apples" })
   })
 
-  test('test expect toHaveLastReturnedWith', () => {
-    sell('bananas')
-    expect(sell).toHaveLastReturnedWith({ product: 'bananas' })
+  test("test expect toHaveLastReturnedWith", () => {
+    sell("bananas")
+    expect(sell).toHaveLastReturnedWith({ product: "bananas" })
+  })
+
+  test("test expect toHaveNthReturnedWith", () => {
+    expect(sell).toHaveNthReturnedWith(1, { product: "apples" })
   })
 })
