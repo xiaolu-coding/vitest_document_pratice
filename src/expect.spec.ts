@@ -231,4 +231,17 @@ describe("expect", () => {
     // 断言对象数组是否匹配
     expect([{ foo: "bar" }]).toMatchObject([{ foo: "bar" }])
   })
+
+  // 用于断言函数在调用时是否抛出错误。
+  test("test expect toThrowError", () => {
+    function getFruitStock(type) {
+      if (type === "pineapples") {
+        throw new Error("No pineapples in stock")
+      }
+    }
+    // 你必须将代码包装在一个函数中，否则将无法捕获错误并且断言将会失败
+    expect(() => getFruitStock("pineapples")).toThrowError(
+      "No pineapples in stock"
+    )
+  })
 })
