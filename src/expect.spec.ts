@@ -108,4 +108,11 @@ describe("expect", () => {
     expect(2).not.toBeGreaterThan(2)
   })
 
+  test('test expect toBeGreaterThanOrEqual', () => {
+    // 用于检查值是否大于等于接收值
+    expect(3).toBeGreaterThanOrEqual(2)
+    expect(3).toBeGreaterThanOrEqual(3)
+    expect(3).not.toBeGreaterThanOrEqual(4)
+  })
+
 })
