@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest"
 
-describe('expect', () => {
+describe("expect", () => {
   test("test expect", () => {
     const input = Math.sqrt(4)
     expect(input).toBe(2) // Jest API
@@ -28,7 +28,7 @@ describe('expect', () => {
     expect(0.1 + 0.2).not.toBe(0.3)
   })
 
-  test('test expect toBeCloseTo', () => {
+  test("test expect toBeCloseTo", () => {
     // 第二个参数是限制小数点后的检查位数 0.2 + 0.1 = 0.30000000000000004
     // 0.2 + 0.1 = 0.30000
     expect(0.1 + 0.2).toBeCloseTo(0.3, 5)
@@ -36,11 +36,19 @@ describe('expect', () => {
     expect(0.1 + 0.2).not.toBeCloseTo(0.3, 50)
   })
 
-  test('test expect toBeDefined', () => {
-    const getApples1 = () => 3
-    const getApples2 = () => { let a = 1 }
+  const getApples1 = () => 3
+  const getApples2 = () => {
+    let a = 1
+  }
+  test("test expect toBeDefined", () => {
     // 检查是否不等于undefined，也可以检查返回值
     expect(getApples1()).toBeDefined()
     expect(getApples2()).not.toBeDefined()
+  })
+
+  test("test expect toBeUndefined", () => {
+    // 检查是否等于undefined，也可以用于检查返回值
+    expect(getApples1()).not.toBeUndefined()
+    expect(getApples2()).toBeUndefined()
   })
 })
