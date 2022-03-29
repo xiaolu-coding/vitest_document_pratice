@@ -160,4 +160,16 @@ describe("expect", () => {
     expect('xiaolu').toContain('xiao')
     expect([1, 2, 3]).toContain(2)
   })
+
+  test('test expect toContainEqual', () => {
+    // 用于检查数组中是否包含具有特定结构和值的元素
+    // 它就像对每个元素进行 toEqual 操作。
+    const stock = [{
+      fruit: 'apples',
+      count: 5
+    }]
+    expect([1, 2, 3]).toContainEqual(2)
+    expect(stock).not.toContainEqual({ fruit: 'apples' })
+    expect(stock).toContainEqual({ fruit: 'apples', count: 5 })
+  })
 })
