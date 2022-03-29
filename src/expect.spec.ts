@@ -71,4 +71,10 @@ describe("expect", () => {
     // 检查是否等于null, 是.toBe(null)的别名
     expect(apples()).toBeNull()
   })
+
+  test('test expect toBeNaN', () => {
+    // 检查是否等于NaN 是.toBe(NaN)的别名
+    expect(NaN).toBeNaN()
+    expect(1).not.toBeNaN()
+  })
 })
