@@ -172,4 +172,14 @@ describe("expect", () => {
     expect(stock).not.toContainEqual({ fruit: 'apples' })
     expect(stock).toContainEqual({ fruit: 'apples', count: 5 })
   })
+
+  test('test expect toHaveLength', () => {
+    //  用于断言一个对象是否具有 .length 属性，并且它被设置为某个数值。
+    expect("abc").toHaveLength(3)
+    expect([1, 2, 3]).toHaveLength(3)
+    expect({ length: 3 }).toHaveLength(3)
+    // length值不是3
+    expect([1, 2, 3, 4]).not.toHaveLength(3)
+    
+  })
 })
