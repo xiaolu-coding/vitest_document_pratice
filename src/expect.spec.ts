@@ -208,4 +208,10 @@ describe("expect", () => {
     expect(invoice).toHaveProperty("total_amount", 5000) //断言 key 存在且值相等
     expect(invoice).not.toHaveProperty("account") //断言这个 key 不存在
   })
+
+  test("test expect toMatch", () => {
+    // 用于断言字符串是否匹配某个模式
+    expect("top fruits include apple, orange and grape").toMatch(/apple/)
+    expect("applefruits").toMatch("fruit") // toMatch 也可以是一个字符串
+  })
 })
