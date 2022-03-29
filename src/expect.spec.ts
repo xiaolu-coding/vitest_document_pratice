@@ -142,4 +142,16 @@ describe("expect", () => {
     expect(stockBill).toEqual(stockMary)
     expect(1).toEqual(1)
   })
+
+  test('test expect toStrictEqual', () => {
+    class Stock {
+      type: string
+      constructor(type) {
+        this.type = type
+      }
+    }
+    // 严格相等 如果是对象类型（将会使用递归的方法进行比较），并且会比较它们是否是相同的类型。
+    expect(new Stock("apples")).toEqual({ type: "apples" })
+    expect(new Stock("apples")).not.toStrictEqual({ type: "apples" })
+  })
 })
