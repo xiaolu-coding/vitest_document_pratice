@@ -1,4 +1,4 @@
-import { describe, expect, test, beforeEach, afterEach, beforeAll } from "vitest"
+import { describe, expect, test, beforeEach, afterEach, beforeAll, afterAll } from "vitest"
 
 describe('test setup and teardown', () => {
   test('test beforeEach', () => {
@@ -19,6 +19,12 @@ describe('test setup and teardown', () => {
     // 注册一个回调,在当前上下文中的所有测试运行之前被调用
     beforeAll(() => {
       console.log("beforeAll")
+    })
+  })
+
+  test('test afterAll', () => {
+    afterAll(() => {
+      console.log("afterAll")
     })
   })
 })
