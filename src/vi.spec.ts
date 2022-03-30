@@ -1,10 +1,9 @@
 import { describe, test, expect, vi } from "vitest"
 
-describe('test vi', () => {
+describe("test vi", () => {
   let i = 0
   setInterval(() => console.log(++i), 50)
   test("test vi advanceTimersByTime", () => {
-    
     vi.useFakeTimers()
     vi.advanceTimersByTime(150)
   })
@@ -20,7 +19,7 @@ describe('test vi', () => {
     vi.clearAllTimers()
   })
 
-  test('test vi fn', () => {
+  test("test vi fn", () => {
     const getApples = vi.fn(() => 0)
 
     getApples()
@@ -29,7 +28,7 @@ describe('test vi', () => {
     expect(getApples).toHaveReturnedWith(0)
   })
 
-  test('test vi getMockedSystemTime', () => {
+  test("test vi getMockedSystemTime", () => {
     // 返回使用 setSystemTime 设置的模拟的当前日期。如果日期没有被模拟，将返回 null。
     const mockedDate = vi.getMockedSystemTime()
     expect(mockedDate).toBe(null)
@@ -39,5 +38,20 @@ describe('test vi', () => {
     // 返回当前的真实日期。
     const realDate = vi.getRealSystemTime()
     expect(realDate).toBeDefined()
+  })
+
+  test("test vi spyOn", () => {
+    let apples = 0
+    const obj = {
+      getApples: () => 13,
+    }
+
+    const spy = vi.spyOn(obj, "getApples").mockImplementation(() => apples)
+    apples = 1
+
+    expect(obj.getApples()).toBe(1)
+
+    expect(spy).toHaveBeenCalled()
+    expect(spy).toHaveReturnedWith(1)
   })
 })
