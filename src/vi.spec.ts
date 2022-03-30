@@ -28,4 +28,10 @@ describe('test vi', () => {
     expect(getApples).toHaveBeenCalled()
     expect(getApples).toHaveReturnedWith(0)
   })
+
+  test('test vi getMockedSystemTime', () => {
+    // 返回使用 setSystemTime 设置的模拟的当前日期。如果日期没有被模拟，将返回 null。
+    const mockedDate = vi.getMockedSystemTime()
+    expect(mockedDate).toBe(null)
+  })
 })
