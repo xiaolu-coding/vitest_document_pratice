@@ -14,4 +14,9 @@ describe('test vi', () => {
       .advanceTimersToNextTimer()
       .advanceTimersToNextTimer()
   })
+
+  test("test vi clearAllTimers", () => {
+    // 清除所有运行的计时器
+    vi.clearAllTimers()
+  })
 })
