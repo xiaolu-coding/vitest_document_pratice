@@ -19,4 +19,13 @@ describe('test vi', () => {
     // 清除所有运行的计时器
     vi.clearAllTimers()
   })
+
+  test('test vi fn', () => {
+    const getApples = vi.fn(() => 0)
+
+    getApples()
+
+    expect(getApples).toHaveBeenCalled()
+    expect(getApples).toHaveReturnedWith(0)
+  })
 })
