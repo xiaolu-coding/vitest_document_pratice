@@ -34,4 +34,10 @@ describe('test vi', () => {
     const mockedDate = vi.getMockedSystemTime()
     expect(mockedDate).toBe(null)
   })
+
+  test("test vi getRealSystemTime", () => {
+    // 返回当前的真实日期。
+    const realDate = vi.getRealSystemTime()
+    expect(realDate).toBeDefined()
+  })
 })
